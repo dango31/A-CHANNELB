@@ -1,0 +1,103 @@
+﻿@page "/ThreadPage/{CodeID?}"
+@using BlazorGroupB.Data
+@using BlazorGroupB.Models
+
+@if (Msgs != null && int.TryParse(CodeID, out int number))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>MessageID</th>
+                <th>MessageNumber</th>
+                <th>本文DetailMessage</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Msgs)
+            {
+                <tr>
+                    <th>@item.MessageID</th>
+                    <td>@item.MessageNumber</td>
+                    <td>@item.DetailMessage</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-primary">No-Data...</div>
+}
+
+<EditForm Model="@msg" OnSubmit="OnCreateMessage">
+    <div class="form-group">
+        <label asp-for="msg.DetailMessage" class="control-label"></label>
+        <input asp-for="msg.DetailMessage" class="form-control" @bind-value=@msg.DetailMessage />
+    </div>
+    <button class="btn btn-primary">Message送信</button>
+</EditForm>
+@code {
+    [Parameter]
+    public string CodeID { get; set; }
+
+    public List<Messages> Msgs { get; set; }
+    Messages msg = new Messages();
+
+    private async void OnCreateMessage()
+    {
+        // var remoteUserAgent = await JSRuntime.InvokeAsync<string>("getUserAgent");
+        // msg.UserName = remoteUserAgent;
+        // //  ThreadIdを追加する
+        // if (int.TryParse(CodeID, out int number))
+        // {
+        //     msg.ThreadId = number;
+        // }
+        // else
+        // {
+        //     msg.ThreadId = 0;
+
+        // }
+
+        // //  メッセージを作成する
+        // _context.Add(msg);
+        // _context.SaveChanges();
+
+        // StringBuilder sb = new StringBuilder();
+        // sb.Append("/ThreadPage/")
+        //     .Append(CodeID);
+        // NaviManager.NavigateTo(sb.ToString(), forceLoad: true);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        //  データベースから値を取り出す
+        // if (int.TryParse(CodeID, out int number))
+        // {
+
+        //     Msgs = await _context.Messages.Where(m => m.ThreadId == number).ToListAsync<Messages>();
+        //     // Msgs = await messageService.GetMessagesAsync(number);
+        //     // messages.Where(m => m.ThreadId == number).ToList();   .Where(m => m.ThreadId == number)
+        // }
+        // else
+        // {
+        //     Msgs = await _context.Messages.ToListAsync<Messages>();
+        // }
+
+        //  テスト用のデータを手動で打ち込む
+
+        Msgs = new List<Messages>()
+        {
+            //  ここに一つずつ書いていく(五つほど)
+            new Messages(1,1,"idxxx1","エル","コメント1番のり",1,"2024/01/01 0:00:00"),
+            new Messages(2,2,"idyyy2","EMU","22222222222222222222222222",2,"2024/02/01 22:22:22"),
+            new Messages(3,3,"idzzz3","ｴｽ♡","三番、でー～す",3,"2024/03/01 3:33:33"),
+            new Messages(4,4,"idaaa4","大","４ばんめ",4,"2024/04/01 4:44:44"),
+            new Messages(5,5,"idbbb5","しょう","最後あああああああ",5,"2024/05/01 5:55:55")
+            
+
+
+        };
+    }
+
+}
