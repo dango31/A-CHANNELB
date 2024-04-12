@@ -86,17 +86,16 @@ else
 
         //  テスト用のデータを手動で打ち込む
 
+        DateTime dt = DateTime.Now;
         Msgs = new List<Messages>()
         {
             //  ここに一つずつ書いていく(五つほど)
-            new Messages(1,1,"idxxx1","エル","コメント1番のり",1,"2024/01/01 0:00:00"),
-            new Messages(2,2,"idyyy2","EMU","22222222222222222222222222",2,"2024/02/01 22:22:22"),
-            new Messages(3,3,"idzzz3","ｴｽ♡","三番、でー～す",3,"2024/03/01 3:33:33"),
-            new Messages(4,4,"idaaa4","大","４ばんめ",4,"2024/04/01 4:44:44"),
-            new Messages(5,5,"idbbb5","しょう","最後あああああああ",5,"2024/05/01 5:55:55")
+            new Messages(1,1,"idxxx1","エル","コメント1番のり",1,dt),
+            new Messages(2,2,"idyyy2","EMU","22222222222222222222222222",2,dt),
+            new Messages(3,3,"idzzz3","ｴｽ♡","三番、でー～す",3,dt),
+            new Messages(4,4,"idaaa4","大","４ばんめ",4,dt),
+            new Messages(5,5,"idbbb5","しょう","最後あああああああ",5,dt)
             
-
-
         };
     }
 
