@@ -19,7 +19,7 @@
                 <tr>
 
                     <td>@item.ThreadID</td>
-                    <td><a href="@item.ThreadUrl">@item.ThreadName</a> </td>
+                    <td><a href="/ThreadPage/@item.ThreadID">@item.ThreadName</a> </td>
 
                 </tr>
             }
@@ -84,15 +84,15 @@ else
 
         //  テスト用のデータを手動で打ち込む
 
+        DateTime dt = DateTime.Now;
         Ths = new List<Threads>()
         {
             //  ここに一つずつ書いていく(五つほど)
-            new Threads("ハローワークって"),
-            new Threads("職業訓練の日々"),
-            new Threads("休みの日には"),
-            new Threads("雨だから"),
-            new Threads("家事こなす？"),
-            new Threads("")
+            new Threads(1, "一つ目のスレッド", "ユーザー１", dt, dt),
+            new Threads(2, "二つ目のスレッド", "ユーザー２", dt, dt),
+            new Threads(3, "三つ目のスレッド", "ユーザー３", dt, dt),
+            new Threads(4, "四つ目のスレッド", "ユーザー４", dt, dt),
+            new Threads(5, "五つ目のスレッド", "ユーザー５", dt, dt)
 
         };
     }
