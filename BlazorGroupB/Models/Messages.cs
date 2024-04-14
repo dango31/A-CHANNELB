@@ -22,7 +22,7 @@ public class Messages
         string detailMessage, int messageNumber, DateTime postTime)
     {
         this.MessageID = messageId;
-        this.ThreadId = threadId;
+        this.ThreadID = threadId;
         this.UserID = userId;
         this.WriteName = writeName;
         this.DetailMessage = detailMessage;
